@@ -25,8 +25,8 @@ with DAG(
         'retry_delay': timedelta(minutes=5),
     },
     description='A simple tutorial DAG',
-    schedule_interval='1 * * * *',
-    start_date=datetime(2021, 1, 1),
+    #schedule_interval='1 * * * *',
+    #start_date=datetime(2021, 1, 1),
     catchup=False,
     tags=['example'],
 ) as dag:
