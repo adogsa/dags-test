@@ -80,8 +80,22 @@ else:
 
             print(f"Total order value is: {total_order_value:.2f}")
 
+        @task()
+        def load2(total_order_value: float):
+            """
+            #### Load task
+            A simple Load task which takes in the result of the Transform task and
+            instead of saving it to end user review, just prints it out.
+            """
+
+            print(f"Total order value2 is: {total_order_value:.2f}")
+
         order_data = extract()
         order_summary = transform(order_data)
-        load(order_summary["total_order_value"])
+        if order_summary["test"] > 1:
+            load(order_summary["total_order_value"])
+        else:
+            load2(order_summary["total_order_value"])
+        # load(order_summary["total_order_value"])
 
     tutorial_dag = tutorial_taskflow_api_virtualenv()
