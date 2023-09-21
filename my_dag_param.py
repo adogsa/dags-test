@@ -68,7 +68,7 @@ else:
             for value in order_data_dict.values():
                 total_order_value += value
 
-            return {"total_order_value": total_order_value}
+            return {"total_order_value": total_order_value, "test": 1}
 
         @task()
         def load(total_order_value: float):
